@@ -4,9 +4,35 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>图片</title>
+    <style>
+        img:first-child {
+            all: initial;
+        }
+        .a1{
+            width: 500px;
+        }
+    </style>
 </head>
 <body>
-<img src="https://raw.githubusercontent.com/mdn/learning-area/master/html/multimedia-and-embedding/images-in-html/dinosaur_small.jpg"
-     alt="博物馆里的恐龙" width="200px" height="171px" title="恐龙"/>
+<!--<img src="https://raw.githubusercontent.com/mdn/learning-area/master/html/multimedia-and-embedding/images-in-html/dinosaur_small.jpg"-->
+<!--     alt="博物馆里的恐龙" width="200px" height="171px" title="恐龙"/>-->
+<!--<hr/>-->
+<!--<img src="images/flower-1080px.png" alt="花儿" width="1080px">-->
+<!--<hr/>-->
+<!--<img src="images/flower-500px.png" alt="花儿" width="500px">-->
+<hr/>
+<p>响应式图片</p>
+<img
+        class="a1"
+        srcset="images/flower-500px.png,images/flower-780px.png 1.5x,images/flower-1080px.png 2x"
+        src="images/flower-1080px.png"
+        alt="flower"
+>
+<p>美术设计</p>
+<picture>
+    <source media="(max-width:799px)" srcset="images/flower-780px.png" width="300px">
+    <source media="(min-width:800px)" srcset="images/flower-1080px.png" width="700px">
+    <img src="images/flower-500px.png" alt="flower">
+</picture>
 </body>
 </html>
