@@ -24,10 +24,10 @@ new Promise((resolve, reject) => {
 }).then(()=> {
     console.log('g')
 })
-*/
 
 // d a c b f g e
 // d a c f b g e
+*/
 
 /*
 console.log(1);
@@ -85,6 +85,7 @@ setTimeout(() => {
 console.log("Promise（队列中）", promise);
 */
 
+/*
 function resolveAfter2Seconds() {
     console.log("starting slow promise");
     return new Promise((resolve) => {
@@ -152,4 +153,31 @@ async function parallel() {
 
 // setTimeout(concurrentPromise, 7000);
 
-setTimeout(parallel, 10000);
+// setTimeout(parallel, 10000);
+*/
+
+let i = 0;
+
+queueMicrotask(function test() {
+    i++;
+    console.log("microtask", i);
+    if (i < 3) {
+        queueMicrotask(test);
+    }
+});
+
+(async () => {
+    console.log("async function start");
+    for (let i = 1; i < 3; i++) {
+        await null;
+        console.log("async function resume", i);
+    }
+    await null;
+    console.log("async function end");
+})();
+
+queueMicrotask(() => {
+    console.log("queueMicrotask() after calling async function");
+});
+
+console.log("script sync part end");
