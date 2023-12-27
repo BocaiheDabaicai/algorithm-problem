@@ -181,3 +181,26 @@ queueMicrotask(() => {
 });
 
 console.log("script sync part end");
+
+// async function start
+// script sync part end
+// "async function resume", 1
+// "microtask", 1
+// "queueMicrotask() after calling async function"
+// "async function resume", 2
+// "microtask", 2
+// "async function resume", 3
+// "microtask", 3
+// "async function end"
+
+/*
+async function foo(name) {
+    console.log(name, "start");
+    await console.log(name, "middle");
+    await console.log(name, "middle---2");
+    console.log(name, "end");
+}
+
+foo("First");
+foo("Second");
+*/
