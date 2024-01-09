@@ -156,6 +156,7 @@ async function parallel() {
 // setTimeout(parallel, 10000);
 */
 
+/*
 let i = 0;
 
 queueMicrotask(function test() {
@@ -181,6 +182,7 @@ queueMicrotask(() => {
 });
 
 console.log("script sync part end");
+*/
 
 // async function start
 // script sync part end
@@ -204,3 +206,70 @@ async function foo(name) {
 foo("First");
 foo("Second");
 */
+
+// ----this
+/*function fn(){
+    this.x = 2
+    console.log(this)
+    return this
+}
+
+fn()
+
+class fn1 {
+    constructor() {
+        console.log(this)
+    }
+
+    fnn(){
+        console.log(this)
+    }
+}
+
+let a = new fn1()
+a.fnn()
+*/
+
+// function Product(name, price) {
+//     this.name = name;
+//     this.price = price;
+// }
+//
+// function Food(name, price) {
+//     Product.call(this, name, price);
+//     this.category = 'food';
+// }
+//
+// let a = new Food('cheese', 5)
+// console.log(a);
+
+function show(){
+    console.log(this.x,' is a Number.')
+}
+function Ddd(){
+    this.x = 9
+}
+
+let mo = {
+    x: 42,
+    getX: function () {
+        return this.x;
+    },
+};
+
+let mo2 = {
+    x: 10,
+    getX: function () {
+        return this.x;
+    },
+};
+
+let mo3 = new Ddd()
+
+show()
+show.call(mo)
+show.call(mo2)
+show.call(mo3)
+let q = show.bind(mo)
+console.log(q)
+q()
