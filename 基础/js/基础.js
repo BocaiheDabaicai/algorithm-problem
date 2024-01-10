@@ -243,6 +243,7 @@ a.fnn()
 // let a = new Food('cheese', 5)
 // console.log(a);
 
+/*
 function show(){
     console.log(this.x,' is a Number.')
 }
@@ -272,4 +273,25 @@ show.call(mo2)
 show.call(mo3)
 let q = show.bind(mo)
 console.log(q)
-q()
+q()*/
+
+// 防抖、节流
+
+let one = document.querySelector('.one')
+let data = 1
+one.addEventListener('click', oneFunc(add))
+
+function add(a = 1, b = 2, c = 3) {
+    console.log(a, b, c)
+    console.log(data++)
+}
+
+function oneFunc(fn, wait = 1000) {
+    let timeout;
+    return function () {
+        clearTimeout(timeout)
+        timeout = setTimeout(() => {
+            fn.apply(this, [2,4,6])
+        }, wait)
+    }
+}
