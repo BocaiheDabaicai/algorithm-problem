@@ -278,14 +278,17 @@ q()*/
 // 防抖、节流
 
 let one = document.querySelector('.one')
+let two = document.querySelector('.two')
 let data = 1
 one.addEventListener('click', oneFunc(add))
+two.addEventListener('click', twoFunc(add))
 
 function add(a = 1, b = 2, c = 3) {
     console.log(a, b, c)
     console.log(data++)
 }
 
+// 防抖实现
 function oneFunc(fn, wait = 1000) {
     let timeout;
     return function () {
@@ -293,5 +296,21 @@ function oneFunc(fn, wait = 1000) {
         timeout = setTimeout(() => {
             fn.apply(this, [2,4,6])
         }, wait)
+    }
+}
+
+// 节流实现
+function twoFunc(fn,wait = 1000){
+    let timeout;
+    let startTime = Date.now()
+    return function(){
+        let curTime = Date.now()
+        let remaining = wait - (curTime - startTime)
+        console.log(remaining,curTime-startTime)
+        clearTimeout(timeout)
+        if(remaining <= 0){
+            fn.apply(this,[2,4,6])
+            startTime = Date.now()
+        }else timeout = setTimeout(fn,remaining)
     }
 }
