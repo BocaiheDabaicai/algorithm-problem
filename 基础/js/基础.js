@@ -277,6 +277,7 @@ q()*/
 
 // 防抖、节流
 
+/*
 let one = document.querySelector('.one')
 let two = document.querySelector('.two')
 let data = 1
@@ -314,3 +315,23 @@ function twoFunc(fn,wait = 1000){
         }else timeout = setTimeout(fn,remaining)
     }
 }
+*/
+
+// 生成器函数与for of的使用
+
+/*
+var gen = (function* () {
+    yield 1;
+    yield 2;
+    yield 3;
+})();
+for (let o of gen) {
+    console.log(o);
+    break; //关闭生成器
+}
+
+//生成器不应该重用，以下没有意义！
+for (let o of gen) {
+    console.log(o);
+}
+*/
