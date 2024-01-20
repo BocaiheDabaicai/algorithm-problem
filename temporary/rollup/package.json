@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development rollup -w -c ./rollup.config.js",
+    "build": "cross-env NODE_ENV=production rollup -c ./rollup.config.js"
+  },
+  "dependencies": {
+    "vue": "^3.4.15"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.8",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-html": "^1.0.3",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.5",
+    "cross-env": "^7.0.3",
+    "rollup": "^4.9.5",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-serve": "^1.1.1",
+    "rollup-plugin-vue": "^6.0.0"
+  }
+}
