@@ -1,2 +1,6 @@
-temporary/rollup/node_modules/
-temporary/vite/node_modules/
+<<<<<<< HEAD
+pack/webpack/node_modules/
+=======
+pack/rollup/node_modules/
+pack/vite/node_modules/
+>>>>>>> 6b6a96ea5381c043469b22770faaa1ad114f7f35
